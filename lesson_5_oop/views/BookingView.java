@@ -40,6 +40,17 @@ public class BookingView implements View {
         }
     }
 
+    //Доработать
+    @Override
+    public void showChangeReservationTableResult(int oldReservation, int reservationNo) {
+        if(reservationNo > 0){
+            System.out.printf("Бронь #%d успешно удалена.\nНомер вашей новой брони: #%d\n", oldReservation, reservationNo);
+        }
+        else{
+            System.out.println("Произошла ошибка при редактировании бронирования. \nПовторите попытку позже");
+        }
+    }
+
     public void reservationTable(Date orderDate, int tableNo, String name){
         if(observers != null)
             for(ViewObserver observer : observers){
@@ -48,7 +59,10 @@ public class BookingView implements View {
     }
 
     public void changeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name){
-        
+        if(observers != null)
+        for(ViewObserver observer : observers){
+            observer.onChangeReservationTable(oldReservation, reservationDate, tableNo, name);
+        }
     }
     
 }

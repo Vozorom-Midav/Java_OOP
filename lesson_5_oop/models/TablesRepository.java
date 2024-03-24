@@ -35,5 +35,10 @@ public class TablesRepository implements Model {
         }
         throw new RuntimeException("Некорректный номер столика");
     }
+
+    @Override
+    public void deleteReservation(int reservationNo) {
+        //Блок с удалением бронирования
+    }
     
 }

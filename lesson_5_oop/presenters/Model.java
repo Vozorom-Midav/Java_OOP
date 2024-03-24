@@ -9,4 +9,6 @@ public interface Model {
     Collection<Table> loadTables();
 
     int reservationTable(Date reservationDate, int rableNo, String name);
+
+    void deleteReservation(int reservationNo);
 }
